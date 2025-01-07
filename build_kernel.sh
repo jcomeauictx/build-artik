@@ -80,10 +80,11 @@ build_modules()
 		reserved=$((66 * $blocksize))
 	fi
 	modulefs_size=$((${MODULE_SIZE} * 1024 * 1024 - $reserved))
+	blocks=$(($modulefs_size / $blocksize))
 
-	make_ext4fs -b $blocksize -L modules \
-		-l $modulefs_size ${TARGET_DIR}/modules.img \
-		${TARGET_DIR}/modules/lib/modules/
+	mkfs.ext4 -b $blocksize -L modules \
+		-d ${TARGET_DIR}/modules/lib/modules/ \
+		${TARGET_DIR}/modules.img $blocks
 
 	# append hashtree at the end of the ext4 volume
 	if [ "${VERIFIED_BOOT}" = "true" ]; then
@@ -180,7 +181,7 @@ test -d $TARGET_DIR || mkdir -p $TARGET_DIR
 pushd $KERNEL_DIR
 
 package_check ${CROSS_COMPILE}gcc
-package_check make_ext4fs
+package_check mkfs.ext4
 
 build
 build_modules

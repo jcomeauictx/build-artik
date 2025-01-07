@@ -226,7 +226,7 @@ parse_options "$@"
 
 package_check curl curl
 package_check kpartx kpartx
-package_check make_ext4fs android-tools-fsutils
+package_check mkfs.ext4
 package_check arm-linux-gnueabihf-gcc gcc-arm-linux-gnueabihf
 
 if [ "$VERIFIED_BOOT" = "true" ]; then
