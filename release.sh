@@ -261,7 +261,7 @@ export BUILD_VERSION=$BUILD_VERSION
 export TARGET_DIR=$TARGET_DIR/$BUILD_VERSION/$BUILD_DATE
 export VERIFIED_BOOT=$VERIFIED_BOOT
 
-sudo ls > /dev/null 2>&1
+#sudo ls > /dev/null 2>&1
 
 mkdir -p $TARGET_DIR
 
