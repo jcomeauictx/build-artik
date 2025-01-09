@@ -2,7 +2,8 @@
 # sources and documentation under its control. So none of the shortcut
 # methods will work.
 all: release.sh
-	./$< -c config/artik710_ubuntu.cfg --full-build --ubuntu
+	./$< -c config/artik710_ubuntu.cfg --full-build --ubuntu 2>&1 \
+	 | tee release.log
 # The above doesn't work, we need:
 # ../linux-artik/arch/arm64/boot/dts/nexell/overlays/s5p6818-artik710-*.dtbo
 # and all we have is the .dtb file
@@ -10,3 +11,4 @@ all: release.sh
 # see https://stackoverflow.com/a/36298460
 # also: https://xilinx.github.io/kria-apps-docs/creating_applications/2022.1/build/html/docs/dtsi_dtbo_generation.html, specifically the command:
 # `dtc -@ -O dtb -o pl.dtbo pl.dtsi`
+# possible fix: https://github.com/raspberrypi/linux/issues/2421
