@@ -4,6 +4,7 @@ set -e
 
 KERNEL_RELEASE=
 BUILD_KERNEL_HEADERS=false
+export KBUILD_VERBOSE=
 
 package_check()
 {
