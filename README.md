@@ -6,7 +6,7 @@
 4. [Install guide](#4-install-guide)
 
 ## 1. Introduction
-This 'build-artik' repository helps to create an ARTIK sd fuse image which can do eMMC recovery from sdcard. Due to long build time of fedora image, the root file system is provided by prebuilt binary and download it from server during build.
+This 'build-artik' repository helps to create an ARTIK sd fuse image which can do eMMC recovery from sdcard. Due to long build time of fedora image, the root file system is provided by prebuilt binary and download it from server during build. (Note: the prebuilt binaries were on servers run by Samsung and disappeared when they terminated the product. So there are no shortcuts to rebuilding the image, to my knowledge. -- jc@unternet.net 2025-01-10)
 
 ---
 ## 2. Directory structure
@@ -38,7 +38,15 @@ sudo apt-get install kpartx u-boot-tools gcc-arm-linux-gnueabihf gcc-aarch64-lin
 You can download source codes using repo tool. To install the repo tool,
     https://source.android.com/source/downloading.html
 
+NOTE: the repo tool is of no help, since the referenced repos and servers
+were taken offline by Samsung. (jc@unternet.net 2025-01-10)
+
 - ARTIK710
+```
+make  # use jc@unternet.net's Makefile (incomplete as of 2025-01-10)
+```
+
+Obsolete original instructions follow:
 ```
 mkdir artik710
 cd artik710
@@ -352,3 +360,10 @@ cd build-artik
 cd build-artik
 ./release.sh -c config/artik533s_ubuntu.cfg --full-build --ubuntu --skip-ubuntu-build
 ```
+
+## Developer notes
+* <https://stackoverflow.com/a/36298460>
+* [dtc -@ -O dtb -o pl.dtbo pl.dtsi](https://xilinx.github.io/kria-apps-docs/creating_applications/2022.1/build/html/docs/dtsi_dtbo_generation.html)
+* [possible fix for failure to generate .dtbo files](https://github.com/raspberrypi/linux/issues/2421)
+* [Aaron Heise's ARTIK710 Boards article](https://medium.com/hi-z-labs/embedding-artik-710-module-c3fe55200330), [archived](https://ipfs.io/ipfs/Qmec4rcY9Xk3XQs7TRxCTznM34yjowueSx2xPam3PtsZEc)
+* [Aaron Heise's ARTIK710 Images article](https://medium.com/hi-z-labs/custom-artik-710-images-7c78039473bb), [archived](https://ipfs.io/ipfs/QmVE3xespNrHMAxjqsUUFvDnqXkGbwG7AznfrLpyurkB3T)
