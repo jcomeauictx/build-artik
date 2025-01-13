@@ -362,8 +362,8 @@ cd build-artik
 ```
 
 ## Developer notes
-* <https://stackoverflow.com/a/36298460>
-* [dtc -@ -O dtb -o pl.dtbo pl.dtsi](https://xilinx.github.io/kria-apps-docs/creating_applications/2022.1/build/html/docs/dtsi_dtbo_generation.html)
+* [compiling kernel dtb files requires C preprocessor, not just dtc](https://stackoverflow.com/a/36298460)
+* [DTB overlays: `dtc -@ -O dtb -o pl.dtbo pl.dtsi`](https://xilinx.github.io/kria-apps-docs/creating_applications/2022.1/build/html/docs/dtsi_dtbo_generation.html)
 * [possible fix for failure to generate .dtbo files](https://github.com/raspberrypi/linux/issues/2421)
 * [Aaron Heise's ARTIK710 Boards article](https://medium.com/hi-z-labs/embedding-artik-710-module-c3fe55200330), [archived](https://ipfs.io/ipfs/Qmec4rcY9Xk3XQs7TRxCTznM34yjowueSx2xPam3PtsZEc)
 * [Aaron Heise's ARTIK710 Images article](https://medium.com/hi-z-labs/custom-artik-710-images-7c78039473bb), [archived](https://ipfs.io/ipfs/QmVE3xespNrHMAxjqsUUFvDnqXkGbwG7AznfrLpyurkB3T)
